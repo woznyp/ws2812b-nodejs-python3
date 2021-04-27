@@ -2,57 +2,74 @@
 <html>
   <head>
     <script src="controller.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Led Strip</title>
   </head>
   <body>
-    <p>
-      Brightness:
-      <input
-        onchange="update(event, 'br')"
-        type="range"
-        min="0"
-        max="1"
-        value="0"
-        step="0.05"
-      />
-    </p>
-    <p>
-      Red:
-      <input
-        onchange="update(event, 'r')"
-        type="range"
-        min="0"
-        max="255"
-        value="0"
-        step="1"
-      />
-    </p>
-    <p>
-      Green:
-      <input
-        onchange="update(event, 'g')"
-        type="range"
-        min="0"
-        max="255"
-        value="0"
-        step="1"
-      />
-    </p>
-    <p>
-      Blue:
-      <input
-        onchange="update(event, 'b')"
-        type="range"
-        min="0"
-        max="255"
-        value="0"
-        step="1"
-      />
-    </p>
-
-    <p>
-      Result:
-      <span id="result"> </span>
-    </p>
+    <div id="main">
+      <div id="preview">
+        <div id="selected-color">
+          <span id="result"> </span>
+        </div>
+      </div>
+      <div id="controls">
+        <p>
+          Brightness:
+          <input
+            id="br"
+            onchange="update(event, 'br')"
+            type="range"
+            min="0"
+            max="1"
+            value="0"
+            step="0.05"
+          />
+        </p>
+        <p>
+          Red:
+          <input
+            id="r"
+            onchange="update(event, 'r')"
+            type="range"
+            min="0"
+            max="255"
+            value="0"
+            step="1"
+          />
+        </p>
+        <p>
+          Green:
+          <input
+            id="g"
+            onchange="update(event, 'g')"
+            type="range"
+            min="0"
+            max="255"
+            value="0"
+            step="1"
+          />
+        </p>
+        <p>
+          Blue:
+          <input
+            id="b"
+            onchange="update(event, 'b')"
+            type="range"
+            min="0"
+            max="255"
+            value="0"
+            step="1"
+          />
+        </p>
+      </div>
+    </div>
+    <div id="favorites">
+      <div class="color-selector red" onclick="setFavorite(255,0,0,1)"></div>
+      <div class="color-selector green" onclick="setFavorite(0,255,0,1)"></div>
+      <div class="color-selector blue" onclick="setFavorite(0,0,255,1)"></div>
+      <div class="color-selector white" onclick="setFavorite(255,255,255,1)"></div>
+      <div class="color-selector warm-white" onclick="setFavorite(255,214,170,1)"></div>
+    </div>
   </body>
 </html>
